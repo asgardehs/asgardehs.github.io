@@ -1,0 +1,25 @@
+title: Asgard EHS
+email: muninn.developer@protonmail.com
+description: >-
+  Open-source compliance tools for EHS professionals.
+  Local-first, single-binary Go applications that work
+  standalone or as an integrated ecosystem.
+baseurl: ""
+url: "https://asgardehs.github.io"
+github_username: pharomwinters
+repository: asgardehs/asgardehs.github.io
+
+remote_theme: pages-themes/midnight@v0.2.0
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - .mise.toml
