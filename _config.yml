@@ -7,7 +7,7 @@ description: >-
 baseurl: ""
 url: "https://asgardehs.github.io"
 github_username: pharomwinters
-repository: pharomwinters/asgardehs
+repository: asgardehs/asgardehs.github.io
 
 remote_theme: pages-themes/midnight@v0.2.0
 plugins:
