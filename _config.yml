@@ -6,7 +6,7 @@ description: >-
   standalone or as an integrated ecosystem.
 baseurl: ""
 url: "https://asgardehs.github.io"
-github_username: pharomwinters
+github_username: asgardehs
 repository: asgardehs/asgardehs.github.io
 
 remote_theme: pages-themes/midnight@v0.2.0

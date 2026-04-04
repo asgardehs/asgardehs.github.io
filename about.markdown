@@ -16,7 +16,7 @@ Asgard is built by an EHS compliance professional who writes code to solve the p
 
 ### Contributing
 
-All repositories are on GitHub under [pharomwinters](https://github.com/pharomwinters). Contributions, bug reports, and feature requests are welcome.
+All repositories are on GitHub under [asgardehs](https://github.com/asgardehs). Contributions, bug reports, and feature requests are welcome.
 
 ### License
 
