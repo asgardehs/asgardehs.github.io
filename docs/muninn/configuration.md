@@ -19,6 +19,7 @@ file. All variables are optional; the defaults follow platform conventions.
 | `MUNINN_DB_PATH`    | `<vault>/muninn.db`              | Database file location              |
 | `MUNINN_MODEL_NAME` | `nomic-ai/nomic-embed-text-v1.5` | Embedding model to use              |
 | `MUNINN_MODEL_DIR`  | Platform default (see below)     | Local cache for the embedding model |
+| `MUNINN_PORT`       | `21700`                          | Daemon HTTP listen port             |
 
 ### Examples
 

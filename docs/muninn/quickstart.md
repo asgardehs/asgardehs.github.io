@@ -36,9 +36,9 @@ specific tools:
 muninn install --desktop
 ```
 
-Writes a server entry to Claude Desktop's config file so it can launch
-`muninn serve` automatically. After installing, restart Claude Desktop and
-Muninn's tools will appear in the conversation — Claude can save snippets,
+Writes a server entry to Claude Desktop's config file pointing at the Muninn
+daemon. Start the daemon with `muninn daemon`, then restart Claude Desktop —
+Muninn's tools will appear in the conversation. Claude can save snippets,
 search your knowledge base, and create notes on your behalf mid-conversation.
 
 ### `--code` — Claude Code

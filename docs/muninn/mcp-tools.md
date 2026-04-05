@@ -8,7 +8,7 @@ permalink: /docs/muninn/mcp-tools/
 
 # MCP Tools Reference
 
-When Muninn runs as an MCP server (`muninn serve`), it exposes tools that AI
+When Muninn runs as an MCP daemon (`muninn daemon`), it exposes tools that AI
 assistants can use to interact with your knowledge base. This page documents
 every available tool with its parameters and behavior.
 
@@ -214,9 +214,9 @@ their wikilinks, giving you the full picture of how they think about a topic.
 
 ## Usage Notes
 
-All tools communicate over the MCP protocol via stdio. They are available after
-running `muninn install` to register with Claude Desktop, Claude Code, or any
-MCP-compatible client.
+All tools are served by the Muninn daemon (`muninn daemon`) over HTTP. After
+running `muninn install`, Claude Desktop and Claude Code connect to the daemon
+at `http://localhost:21700/mcp`. Start the daemon before using MCP clients.
 
 Tool parameters that accept numbers (`id`, `limit`, `offset`, `depth`) are
 flexible — they accept both JSON numbers and string representations of numbers

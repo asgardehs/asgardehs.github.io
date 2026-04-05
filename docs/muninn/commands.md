@@ -29,7 +29,7 @@ in detail with flags, examples, and expected output.
 | `note backlinks` | Show notes linking to a given note                 | [Notes](/docs/muninn/notes/)                      |
 | `init`           | Create vault, database, and download model         | [Server & Setup](/docs/muninn/server/)            |
 | `install`        | Register with Claude Desktop, Claude Code, VS Code | [Server & Setup](/docs/muninn/server/)            |
-| `serve`          | Start MCP server                                   | [Server & Setup](/docs/muninn/server/)            |
+| `daemon`         | Start MCP daemon (HTTP)                            | [Server & Setup](/docs/muninn/server/)            |
 | `lsp`            | Start LSP server                                   | [Server & Setup](/docs/muninn/server/)            |
 | `stats`          | Show knowledge base statistics                     | [Server & Setup](/docs/muninn/server/)            |
 | `import-notes`   | Import markdown notes from external directories    | [Notes](/docs/muninn/notes/)                      |

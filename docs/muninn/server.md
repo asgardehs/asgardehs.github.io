@@ -133,23 +133,98 @@ This is useful after rebuilding the binary at a new path.
 
 ---
 
-## serve
+## daemon
 
-Start the MCP (Model Context Protocol) server. This is what Claude Desktop and
-Claude Code launch behind the scenes after `muninn install`.
+Start the MCP daemon. This is a persistent HTTP server that Claude Desktop and
+Claude Code connect to after `muninn install`.
 
 ```
-muninn serve
+muninn daemon
 ```
 
-No flags. Communicates over stdio using the MCP protocol.
+No flags. Listens on `http://localhost:21700/mcp` by default. Override the port
+with the `MUNINN_PORT` environment variable.
 
-The server automatically exits after 15 minutes of inactivity (no stdin data) to
-free resources. MCP clients restart it transparently on the next request.
+Unlike the old `muninn serve` (which spawned one process per client over stdio),
+the daemon is a single long-running process. One database connection, one ONNX
+embedding session, all clients share it. No orphan processes, no duplicated
+memory.
 
-You generally don't need to run this yourself — `muninn install` configures your
-AI tools to launch it automatically. It's useful for debugging or if you want to
-connect a custom MCP client.
+Start the daemon before using Claude Desktop or Claude Code with Muninn. It
+shuts down cleanly on `Ctrl+C` or `SIGTERM`.
+
+### Autostart on login
+
+If you want the daemon to start automatically when you log in:
+
+**Linux (systemd user service):**
+
+```bash
+mkdir -p ~/.config/systemd/user
+
+cat > ~/.config/systemd/user/muninn.service << 'EOF'
+[Unit]
+Description=Muninn MCP Daemon
+After=default.target
+
+[Service]
+ExecStart=/usr/local/bin/muninn daemon
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+EOF
+
+systemctl --user daemon-reload
+systemctl --user enable --now muninn
+```
+
+Check status with `systemctl --user status muninn`. Logs are available via
+`journalctl --user -u muninn`.
+
+**macOS (launchd):**
+
+```bash
+cat > ~/Library/LaunchAgents/com.muninn.daemon.plist << 'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.muninn.daemon</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/muninn</string>
+        <string>daemon</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/muninn.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/muninn.log</string>
+</dict>
+</plist>
+EOF
+
+launchctl load ~/Library/LaunchAgents/com.muninn.daemon.plist
+```
+
+Unload with `launchctl unload ~/Library/LaunchAgents/com.muninn.daemon.plist`.
+
+**Windows (Task Scheduler):**
+
+Open Task Scheduler and create a task that runs `muninn.exe daemon` at user
+logon, or use PowerShell:
+
+```powershell
+$action = New-ScheduledTaskAction -Execute "C:\path\to\muninn.exe" -Argument "daemon"
+$trigger = New-ScheduledTaskTrigger -AtLogOn
+Register-ScheduledTask -TaskName "Muninn" -Action $action -Trigger $trigger -Description "Muninn MCP Daemon"
+```
 
 ### Exposed tools
 
