@@ -261,11 +261,108 @@ Notes linking to "btrfs-subvolume-gotchas":
 
 Notes support `[[wikilinks]]` for connecting your knowledge graph.
 
-| Syntax                       | Meaning                                  |
-| ---------------------------- | ---------------------------------------- |
-| `[[target]]`                 | Link to `target.md`                      |
-| `[[target\|display text]]`   | Link to `target.md`, show "display text" |
+| Syntax                                  | Meaning                                           |
+| --------------------------------------- | ------------------------------------------------- |
+| `[[target]]`                            | Link to `target.md`                               |
+| `[[target\|display text]]`              | Link to `target.md`, show "display text"          |
+| `[[target#heading]]`                    | Link to a specific heading in `target.md`         |
+| `[[target#heading\|display text]]`      | Link to heading, show "display text"              |
 
 Links are case-insensitive and match against filenames (without the `.md`
-extension). The LSP server provides completions, go-to-definition, hover
-previews, and diagnostics for broken links.
+extension). Heading fragments are also case-insensitive and match against ATX
+headings (`# Heading`, `## Section`, etc.) in the target note.
+
+The LSP server provides:
+- **Completions** — note names after `[[`, headings after `[[note#`, tags after `#`
+- **Go to Definition** — jump to the target note or specific heading
+- **Hover** — preview the target note content (scoped to heading if fragment used)
+- **Diagnostics** — warnings for broken links and unresolved heading fragments
+- **Rename** — rename a note or heading, updating all references across the vault
+- **Code Lens** — reference count above note titles
+- **Code Actions** — Quick Fix to create a note from a broken link
+
+---
+
+## Callouts
+
+Notes support Obsidian-compatible callout/admonition syntax:
+
+```markdown
+> [!warning] Be careful
+> This is a warning callout with a title.
+
+> [!tip]
+> A tip callout without a custom title.
+```
+
+Supported types: `note`, `warning`, `tip`, `info`, `danger`, `success`,
+`example`, `quote`, `bug`, `abstract`.
+
+The VS Code extension highlights callout syntax in the editor and renders them
+as styled blocks in the markdown preview.
+
+---
+
+## Daily Notes
+
+The VS Code extension includes a daily note command for journaling:
+
+- **Command:** "Muninn: Daily Note" (`Ctrl+Alt+D` / `Cmd+Alt+D`)
+- **Quick pick:** Today, Tomorrow, Yesterday, or a custom date
+- **File path:** `journal/YYYY-MM-W#-DD.md` (week-of-month numbering)
+- **Frontmatter:** Automatically set to `type: journal`, `area: journal`
+
+Custom dates accept `YYYY-MM-DD`, `+N` (days ahead), or `-N` (days back).
+
+---
+
+## Import Notes
+
+Import markdown notes from an external directory (e.g., an Obsidian vault or
+loose markdown files) into the Muninn vault.
+
+```
+muninn import-notes <source-dir> [--dry-run]
+```
+
+| Flag        | Type | Default | Description                          |
+| ----------- | ---- | ------- | ------------------------------------ |
+| `--dry-run` | bool | false   | Show import plan without writing     |
+
+### What it does
+
+1. Walks the source directory for `.md` and `.txt` files
+2. Parses frontmatter (tolerant of messy YAML, Obsidian conventions)
+3. Maps fields to Muninn's schema (e.g., `category` → `type`, `keywords` → `tags`)
+4. Converts Obsidian syntax: `![[embed]]` → `[[link]]`, strips dataview fields
+5. Infers titles from headings or filenames when missing
+6. Deduplicates against existing notes (blake2b content hash)
+7. Writes to the vault with normalized frontmatter and indexes for search
+
+Requires Python 3 (no external packages needed — the parser is embedded in the
+binary and uses only stdlib).
+
+### Example
+
+Preview first:
+
+```bash
+muninn import-notes ~/old-obsidian-vault --dry-run
+```
+
+```
+Import dry-run for /home/you/old-obsidian-vault
+
+  Will import:     47 notes
+  Duplicates:       3
+  Errors:           2
+  Warnings:        12
+
+  Run without --dry-run to import.
+```
+
+Then commit:
+
+```bash
+muninn import-notes ~/old-obsidian-vault
+```

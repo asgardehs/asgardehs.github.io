@@ -105,6 +105,19 @@ muninn note new "Btrfs Subvolume Gotchas"
 Opens a new markdown file in your vault. Add `[[wikilinks]]` to connect notes
 into a knowledge graph.
 
+### Import existing notes
+
+If you have markdown notes from Obsidian or other sources:
+
+```bash
+muninn import-notes ~/old-notes --dry-run   # preview first
+muninn import-notes ~/old-notes              # import
+```
+
+Frontmatter is normalized automatically, Obsidian syntax is converted, and
+duplicates are skipped. See [Notes — Import](/docs/muninn/notes/#import-notes)
+for details.
+
 ### Check your stats
 
 ```bash

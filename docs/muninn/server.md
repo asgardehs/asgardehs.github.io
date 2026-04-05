@@ -144,6 +144,9 @@ muninn serve
 
 No flags. Communicates over stdio using the MCP protocol.
 
+The server automatically exits after 15 minutes of inactivity (no stdin data) to
+free resources. MCP clients restart it transparently on the next request.
+
 You generally don't need to run this yourself — `muninn install` configures your
 AI tools to launch it automatically. It's useful for debugging or if you want to
 connect a custom MCP client.

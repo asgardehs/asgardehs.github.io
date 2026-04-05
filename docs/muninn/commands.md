@@ -32,6 +32,7 @@ in detail with flags, examples, and expected output.
 | `serve`          | Start MCP server                                   | [Server & Setup](/docs/muninn/server/)            |
 | `lsp`            | Start LSP server                                   | [Server & Setup](/docs/muninn/server/)            |
 | `stats`          | Show knowledge base statistics                     | [Server & Setup](/docs/muninn/server/)            |
+| `import-notes`   | Import markdown notes from external directories    | [Notes](/docs/muninn/notes/)                      |
 
 See also: [Configuration](/docs/muninn/configuration/) for environment variables and data
 locations.

@@ -13,7 +13,7 @@ permalink: /docs/muninn/
 
 - [Command Reference](/docs/muninn/commands/) — all commands at a glance
 - [Snippets](/docs/muninn/snippets/) — save, get, list, delete, tag, export, import
-- [Notes](/docs/muninn/notes/) — note new, list, index, search, backlinks, wikilinks
+- [Notes](/docs/muninn/notes/) — notes, wikilinks, callouts, daily notes, import
 - [Search](/docs/muninn/search/) — unified semantic search
 - [Server & Setup](/docs/muninn/server/) — init, install, serve, lsp, stats
 - [MCP Tools Reference](/docs/muninn/mcp-tools/) — all MCP tools for AI assistants

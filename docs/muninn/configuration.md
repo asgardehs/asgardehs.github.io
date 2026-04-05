@@ -71,6 +71,9 @@ muninn/
 ├── muninn.db          # snippets, note index, embeddings, wikilinks
 ├── notes/             # markdown vault
 │   ├── some-topic.md
+│   ├── journal/       # daily notes (created by daily note command)
+│   │   ├── 2026-04-W1-05.md
+│   │   └── ...
 │   └── ...
 └── .gitignore         # ignores muninn.db and model cache
 ```
@@ -97,3 +100,22 @@ installing it system-wide is recommended for reliability.
 Muninn searches standard library paths automatically. If installed to a
 non-standard location, the library just needs to be on the system library path
 (`LD_LIBRARY_PATH` on Linux, `DYLD_LIBRARY_PATH` on macOS).
+
+---
+
+## VS Code Extension Settings
+
+The Muninn VS Code extension adds these settings (configurable in VS Code's
+Settings UI or `settings.json`):
+
+| Setting                                | Type    | Default     | Description                                            |
+| -------------------------------------- | ------- | ----------- | ------------------------------------------------------ |
+| `muninn.binaryPath`                    | string  | `"muninn"`  | Path to the muninn binary                              |
+| `muninn.vaultPath`                     | string  | `""`        | Override vault path (defaults to env or platform path)  |
+| `muninn.dailyNotes.folder`             | string  | `"journal"` | Subdirectory for daily notes within the vault           |
+| `muninn.codeLens.enabled`              | boolean | `true`      | Show reference count above note titles                  |
+| `muninn.diagnostics.unresolvedLinks`   | boolean | `true`      | Show warnings for broken wikilinks                      |
+| `muninn.semanticTokens.enabled`        | boolean | `true`      | Enable LSP-driven syntax highlighting                   |
+
+These settings are passed to the LSP server on startup via initialization
+options. Changes take effect after restarting the extension (reload window).
