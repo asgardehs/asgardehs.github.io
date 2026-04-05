@@ -16,4 +16,5 @@ permalink: /docs/muninn/
 - [Notes](/docs/muninn/notes/) — note new, list, index, search, backlinks, wikilinks
 - [Search](/docs/muninn/search/) — unified semantic search
 - [Server & Setup](/docs/muninn/server/) — init, install, serve, lsp, stats
+- [MCP Tools Reference](/docs/muninn/mcp-tools/) — all MCP tools for AI assistants
 - [Configuration](/docs/muninn/configuration/) — environment variables, data locations, ONNX Runtime

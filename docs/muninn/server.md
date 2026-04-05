@@ -150,18 +150,23 @@ connect a custom MCP client.
 
 ### Exposed tools
 
-| Tool                 | Description                                            |
-| -------------------- | ------------------------------------------------------ |
-| `muninn_save`        | Save a snippet with optional title, language, and tags |
-| `muninn_search`      | Unified semantic search across snippets and notes      |
-| `muninn_get`         | Retrieve a specific snippet by ID                      |
-| `muninn_list`        | List snippets with optional filters                    |
-| `muninn_delete`      | Remove a snippet                                       |
-| `muninn_tag`         | Add or remove tags from a snippet                      |
-| `muninn_note_create` | Create a new note with frontmatter                     |
-| `muninn_note_search` | Search notes with frontmatter filters                  |
-| `muninn_note_get`    | Read a note's full content and backlinks               |
-| `muninn_note_index`  | Trigger vault re-indexing                              |
+| Tool                  | Description                                            |
+| --------------------- | ------------------------------------------------------ |
+| `muninn_save`         | Save a snippet with optional title, language, and tags |
+| `muninn_search`       | Unified semantic search across snippets and notes      |
+| `muninn_get`          | Retrieve a specific snippet by ID                      |
+| `muninn_list`         | List snippets with optional filters                    |
+| `muninn_delete`       | Remove a snippet                                       |
+| `muninn_tag`          | Add or remove tags from a snippet                      |
+| `muninn_note_create`  | Create a new note with frontmatter                     |
+| `muninn_note_search`  | Search notes with frontmatter filters                  |
+| `muninn_note_get`     | Read a note's full content and backlinks               |
+| `muninn_note_index`   | Trigger vault re-indexing                              |
+| `muninn_note_links`   | Get forward links and backlinks with fragment details  |
+| `muninn_note_graph`   | Traverse the wikilink graph from a starting note       |
+
+See the [MCP Tools Reference](/docs/muninn/mcp-tools/) for full parameter
+documentation.
 
 ---
 
@@ -182,11 +187,17 @@ etc.) that support LSP over stdio.
 
 ### Features
 
-- **Completions** — trigger on `[[` to complete with note titles
-- **Go to Definition** — jump to the target note from any `[[link]]`
+- **Completions** — note names after `[[`, headings after `[[note#`, and tags after `#`
+- **Go to Definition** — jump to target note or specific heading from `[[note#heading]]`
 - **References** — find all notes that link to the current note (backlinks)
-- **Hover** — preview a linked note's title and opening lines
-- **Diagnostics** — warnings on broken `[[links]]`
+- **Hover** — preview a linked note's content, scoped to the heading if a fragment is used
+- **Diagnostics** — warnings on broken `[[links]]` and unresolved `[[note#heading]]` fragments
+- **Document Symbols** — heading outline in the sidebar (breadcrumbs + Outline panel)
+- **Workspace Symbols** — Ctrl+T to search across all note titles and headings
+- **Semantic Tokens** — LSP-driven highlighting for resolved/broken wikilinks and tags
+- **Code Lens** — reference count shown above each note title
+- **Code Actions** — Quick Fix to create a note from a broken wikilink
+- **Rename** — rename a note or heading and update all wikilinks across the vault
 - **File Watching** — re-indexes changed files and updates diagnostics
 
 ---
