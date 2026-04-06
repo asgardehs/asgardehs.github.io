@@ -119,6 +119,7 @@ layout: default
 
 <div class="site-nav">
   <a href="/docs/muninn/">Muninn Docs</a>
+  <a href="/docs/heimdall/">Heimdall Docs</a>
   <a href="/about/">About</a>
   <a href="/developer/">Developer</a>
 </div>
@@ -147,9 +148,15 @@ Open-source compliance tools built for EHS professionals who need reliable, loca
 <div class="tool-grid">
   <div class="tool-card">
     <h3><a href="https://github.com/asgardehs/muninn">Muninn</a> <span class="badge badge-active">active</span></h3>
-    <p>Knowledge base and semantic search. Capture notes, snippets, and documentation from your terminal, editor, or AI assistant.</p>
-    <span class="tech">CLI &middot; MCP Server &middot; LSP / VS Code Extension &middot; SQLite</span>
+    <p>Knowledge base and note management. Flat-file markdown vault with text search and wikilinks. Edit in any editor, search from the terminal.</p>
+    <span class="tech">CLI &middot; LSP / VS Code Extension &middot; Flat Files</span>
     <div class="links"><a href="/docs/muninn/">Documentation</a><a href="/docs/muninn/quickstart/">Quick Start</a></div>
+  </div>
+  <div class="tool-card">
+    <h3><a href="https://github.com/asgardehs/heimdall">Heimdall</a> <span class="badge badge-active">active</span></h3>
+    <p>Shared configuration library for the ecosystem. Schema-validated settings, change notifications, and cross-platform paths. Imported directly by each tool.</p>
+    <span class="tech">Go Library &middot; CLI &middot; SQLite &middot; Schema Validation</span>
+    <div class="links"><a href="/docs/heimdall/">Documentation</a><a href="/docs/heimdall/quickstart/">Quick Start</a></div>
   </div>
   <div class="tool-card">
     <h3><a href="https://github.com/asgardehs/huginn">Huginn</a> <span class="badge badge-dev">in development</span></h3>
@@ -160,11 +167,6 @@ Open-source compliance tools built for EHS professionals who need reliable, loca
     <h3><a href="https://github.com/asgardehs/odin">Odin</a> <span class="badge badge-dev">in development</span></h3>
     <p>Web-based compliance management. Facility inspections, regulatory tracking, and a unified dashboard for the entire ecosystem.</p>
     <span class="tech">Web UI &middot; Facility Management &middot; Inspection Tracking</span>
-  </div>
-  <div class="tool-card">
-    <h3><a href="https://github.com/asgardehs/heimdall">Heimdall</a> <span class="badge badge-active">active</span></h3>
-    <p>Shared configuration library for the ecosystem. Schema-validated settings, change notifications, and cross-platform paths. Imported directly by each tool.</p>
-    <span class="tech">Go Library &middot; CLI &middot; SQLite &middot; Schema Validation</span>
   </div>
 </div>
 

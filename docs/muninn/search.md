@@ -8,120 +8,91 @@ permalink: /docs/muninn/search/
 
 # Search
 
-Muninn uses semantic search powered by local embeddings — no API calls, no
-network required after the initial model download. You describe what you're
-looking for in plain language, and Muninn finds the closest match even if you
-used different words when you saved it.
+Muninn uses text search to find notes in your vault. Your query is split into
+words and matched against note titles, tags, and content. No external services
+or models required — search works entirely on the local filesystem.
 
 ## How it works
 
-When you save a snippet or index a note, Muninn runs the content through a local
-embedding model (nomic-embed-text-v1.5) to produce a vector representation. At
-search time, your query is embedded the same way and compared against all stored
-vectors using cosine similarity.
+When you search, Muninn walks every note in the vault and scores it against
+your query:
 
-This means a search for "that btrfs permissions thing" will find a snippet
-titled "subvolume set-default requires the ID" — because the meaning is close,
-even though the words are different.
+- **Title match** — highest weight. A word appearing in the title scores 3
+  points.
+- **Tag match** — medium weight. A word matching a frontmatter tag scores 2
+  points.
+- **Body match** — a word appearing anywhere in the note content scores 1
+  point.
 
-Notes are chunked by paragraph so that long documents still return precise
-results. The best-matching chunk per note is returned, along with its heading
-for context.
-
-If you built with the `fts5` tag, exact string matching is also available
-alongside semantic search. Without it, Muninn still works — semantic search is
-the primary method.
+Results are ranked by total score and the top matches are returned with a
+preview line showing the first relevant match in the body.
 
 ---
 
 ## search
 
-Unified search across both snippets and notes, ranked together by relevance.
+Search across all notes in the vault.
 
 ```
 muninn search <query> [flags]
 ```
 
-| Flag      | Type   | Default | Description                                 |
-| --------- | ------ | ------- | ------------------------------------------- |
-| `--scope` | string | `all`   | What to search: `all`, `snippets`, `notes`  |
-| `--lang`  | string |         | Filter by programming language              |
-| `--tags`  | string |         | Filter by tags (comma-separated, AND logic) |
-| `--limit` | int    | 10      | Maximum results                             |
+| Flag        | Type   | Default | Description         |
+| ----------- | ------ | ------- | ------------------- |
+| `--limit`   | int    | 10      | Maximum results     |
+| `--type`    | string |         | Filter by note type |
+| `--status`  | string |         | Filter by status    |
+| `--area`    | string |         | Filter by area      |
+| `--project` | string |         | Filter by project   |
+| `--lang`    | string |         | Filter by language  |
 
 The query is required and can be multiple words.
 
 ### Examples
 
-Search everything:
+Basic search:
 
 ```bash
-muninn search "error handling patterns in Go"
+muninn search "btrfs subvolume permissions"
 ```
 
-Search only snippets:
+Filtered search:
 
 ```bash
-muninn search --scope snippets --lang go "context cancellation"
-```
-
-Search only notes:
-
-```bash
-muninn search --scope notes "goldmark frontmatter parsing"
-```
-
-Filter by tags:
-
-```bash
-muninn search --tags hyprland,ipc "workspace event handler"
+muninn search "error handling" --type reference --lang go
 ```
 
 ### Output
 
-Snippets and notes appear together, sorted by relevance score:
-
 ```
-[snippet 7] workspace IPC handler (score: 0.892)
-    lang: go  tags: hyprland, ipc
-    func handleWorkspaceEvent(ev Event) {
-        switch ev.Type {
-        case "workspace":
-    ...
+[btrfs-subvolume-gotchas.md] Btrfs Subvolume Gotchas (score: 7)
+    set-default requires the subvol ID, not the path.
 ---
-[note notes/hyprland-ipc.md] Hyprland IPC Protocol (score: 0.841)
-    heading: Event Types
-    Workspace events fire when the active workspace
-    changes or a window moves between workspaces...
----
+[go-error-patterns.md] Go Error Patterns (score: 4)
+    Always wrap errors with fmt.Errorf to preserve context...
 ```
-
-Snippet results show the first 3 lines of content as a preview, with `...` if
-there is more. Note results show the heading of the matching chunk and its
-preview text.
 
 ---
 
 ## note search
 
-If you only want to search notes with frontmatter filters, use
-`muninn note search` instead — see [Notes](/docs/muninn/notes/#note-search) for details.
-That command supports filtering by type, status, area, project, and language.
+The `note search` subcommand is equivalent to `search` — both search the same
+vault with the same flags. Use whichever feels natural:
 
-The unified `search` command does not support frontmatter filters — use
-`--scope notes` to limit scope, but use `note search` when you need field-level
-filtering.
+```bash
+muninn search "btrfs permissions"
+muninn note search "btrfs permissions"
+```
+
+See [Notes — note search](/docs/muninn/notes/#note-search) for details.
 
 ---
 
 ## Tips
 
-- **Be descriptive, not exact.** Semantic search rewards natural language. "that
-  thing where nginx drops the host header" works better than "nginx host".
-- **Use scope to reduce noise.** If you know it's a snippet, `--scope snippets`
-  skips notes and vice versa.
-- **Tags are AND logic.** `--tags "go,concurrency"` returns only results tagged
-  with both.
-- **Re-index after editing notes.** Changes to note files on disk are not
-  automatically reflected in search. Run `muninn note index` or let the LSP
-  server handle it if you're using the VS Code extension.
+- **Use multiple words.** More words give more signal for scoring. "btrfs
+  subvolume permissions" is better than just "btrfs".
+- **Frontmatter filters narrow results.** Use `--type`, `--area`, `--lang`,
+  etc. to focus on a specific slice of your vault.
+- **Scores are simple.** A note that matches your query in the title, tags,
+  _and_ body will score higher than one that only matches in the body.
