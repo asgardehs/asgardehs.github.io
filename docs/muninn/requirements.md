@@ -10,11 +10,10 @@ permalink: /docs/muninn/requirements/
 
 To build Muninn from source system requirements must be met:
 
-- Go 1.22+
+- Go 1.26+
 - A C compiler — CGO is required for SQLite, sqlite-vec, and ONNX Runtime
 - ONNX Runtime shared libraries (`libonnxruntime.so` / `.dylib`)
-- Node.js + npm (optional — only needed to build the VS Code extension or
-  `.mcpb` bundle)
+- Node.js + npm (optional — only needed to build the VS Code extension)
 
 | Platform | C Compiler                                | Notes                                          |
 | -------- | ----------------------------------------- | ---------------------------------------------- |
@@ -95,51 +94,22 @@ This produces `muninn-0.1.0.vsix`. Install it with:
 code --install-extension muninn-0.1.0.vsix
 ```
 
-## Claude Desktop Bundle (.mcpb)
+## Registration
 
-The `.mcpb` bundle lets users install Muninn as a Claude Desktop MCP server with
-a double-click. Requires Node.js (for the `@anthropic-ai/mcpb` CLI).
-
-### Linux / macOS
-
-```bash
-# Build the binary into the mcpb directory
-CGO_ENABLED=1 go build -tags fts5 -o mcpb/server/muninn ./cmd/muninn
-
-# Validate the manifest
-npx @anthropic-ai/mcpb validate mcpb/
-
-# Pack into a .mcpb bundle
-npx @anthropic-ai/mcpb pack mcpb/ muninn-linux-amd64.mcpb
-```
-
-> On macOS use `muninn-darwin-arm64.mcpb` (Apple Silicon) or
-> `muninn-darwin-amd64.mcpb` (Intel) for the output filename.
-
-### Windows (PowerShell)
-
-```powershell
-$env:CGO_ENABLED=1
-go build -tags fts5 -o mcpb/server/muninn.exe ./cmd/muninn
-
-npx @anthropic-ai/mcpb validate mcpb/
-npx @anthropic-ai/mcpb pack mcpb/ muninn-win32-amd64.mcpb
-```
-
-### Manual registration (alternative)
-
-If you built Muninn from source and just want to register it without creating a
-`.mcpb`, run:
+After building, register Muninn with Claude Code and VS Code:
 
 ```bash
 muninn install
 ```
 
-This writes the server entry to the Claude Desktop and Claude Code config files
-automatically. To target specific tools, use flags:
+This writes the daemon URL to Claude Code's config and installs the VS Code
+extension. To target a specific tool:
 
 ```bash
-muninn install --desktop # Claude Desktop Only(JSON Config)
-muninn install --code    # Claude Code Only
+muninn install --code    # Claude Code only
 muninn install --vscode  # VS Code extension only
 ```
+
+> **Note:** Claude Desktop's chat interface does not yet support the HTTP MCP
+> transport that the Muninn daemon uses. Use Claude Code (via the desktop app or
+> terminal) to access Muninn's tools.

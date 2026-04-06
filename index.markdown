@@ -123,7 +123,7 @@ layout: default
   <a href="/developer/">Developer</a>
 </div>
 
-Open-source compliance tools built for EHS professionals who need reliable, local-first software. Each tool ships as a single Go binary with zero runtime dependencies --- use them standalone or connect them through Bifrost for a unified workflow.
+Open-source compliance tools built for EHS professionals who need reliable, local-first software. Each tool ships as a single Go binary with zero runtime dependencies --- use them standalone or together through shared configuration.
 
 <div class="principles">
   <div class="principle">
@@ -162,9 +162,9 @@ Open-source compliance tools built for EHS professionals who need reliable, loca
     <span class="tech">Web UI &middot; Facility Management &middot; Inspection Tracking</span>
   </div>
   <div class="tool-card">
-    <h3><a href="https://github.com/asgardehs/bifrost">Bifrost</a> <span class="badge badge-dev">in development</span></h3>
-    <p>The bridge connecting ecosystem tools. Service discovery, message routing, health monitoring, and unified configuration via Heimdall.</p>
-    <span class="tech">IPC &middot; Service Discovery &middot; Config Management</span>
+    <h3><a href="https://github.com/asgardehs/heimdall">Heimdall</a> <span class="badge badge-active">active</span></h3>
+    <p>Shared configuration library for the ecosystem. Schema-validated settings, change notifications, and cross-platform paths. Imported directly by each tool.</p>
+    <span class="tech">Go Library &middot; CLI &middot; SQLite &middot; Schema Validation</span>
   </div>
 </div>
 
@@ -174,24 +174,23 @@ Open-source compliance tools built for EHS professionals who need reliable, loca
 
 <div class="architecture">
 <pre>
-┌──────────┐     ┌─────────────────┐     ┌──────────┐
-│   Odin   │◄───►│    Bifrost      │◄───►│  Muninn  │
-│  (web)   │     │  ┌───────────┐  │     │  (kb)    │
-└──────────┘     │  │ Heimdall  │  │     └──────────┘
-                 │  │ (config)  │  │
-                 │  └───────────┘  │
-                 └────────┬────────┘
-                          │
-                    ┌─────▼─────┐
-                    │  Huginn   │
-                    │  (pdf)    │
-                    └───────────┘
+┌──────────┐     ┌──────────┐     ┌──────────┐
+│   Odin   │     │  Muninn  │     │  Huginn  │
+│  (web)   │     │  (kb)    │     │  (pdf)   │
+└────┬─────┘     └────┬─────┘     └────┬─────┘
+     │                │                │
+     └────────┬───────┴────────┬───────┘
+              │                │
+        ┌─────▼─────┐   ┌─────▼─────┐
+        │ Heimdall  │   │  Shared   │
+        │ (config)  │   │  Vault    │
+        └───────────┘   └───────────┘
 </pre>
 </div>
 
-Each tool communicates through **Bifrost** using local IPC. **Heimdall**, Bifrost's built-in configuration manager, provides a single source of truth for settings across all tools --- accessible through Odin's web UI, CLI commands, or MCP.
+Each tool is standalone --- no daemons, no IPC, no message bus. **Heimdall** is a shared Go library that provides a single source of truth for configuration across all tools, with schema validation and change notifications. Tools also share vault directories and databases on disk.
 
-When Bifrost isn't running, every tool falls back to its own local configuration and continues working independently.
+Every tool works independently. Shared configuration is a convenience, not a dependency.
 
 ---
 

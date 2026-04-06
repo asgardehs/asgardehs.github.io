@@ -215,8 +215,12 @@ their wikilinks, giving you the full picture of how they think about a topic.
 ## Usage Notes
 
 All tools are served by the Muninn daemon (`muninn daemon`) over HTTP. After
-running `muninn install`, Claude Desktop and Claude Code connect to the daemon
-at `http://localhost:21700/mcp`. Start the daemon before using MCP clients.
+running `muninn install`, Claude Code connects to the daemon at
+`http://localhost:21700/mcp`. Start the daemon before using Claude Code.
+
+> **Note:** Claude Desktop's chat interface does not yet support HTTP MCP
+> transports. Use Claude Code (via the desktop app or terminal) to access these
+> tools.
 
 Tool parameters that accept numbers (`id`, `limit`, `offset`, `depth`) are
 flexible — they accept both JSON numbers and string representations of numbers

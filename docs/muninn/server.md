@@ -51,40 +51,24 @@ After init, you can start saving snippets and creating notes immediately.
 
 ## install
 
-Register Muninn with Claude Desktop, Claude Code, and/or VS Code so they can use
-it automatically.
+Register Muninn with Claude Code and/or VS Code so they can use it
+automatically.
 
 ```
 muninn install [flags]
 ```
 
-| Flag        | Type | Default | Description                  |
-| ----------- | ---- | ------- | ---------------------------- |
-| `--desktop` | bool | false   | Register with Claude Desktop |
-| `--code`    | bool | false   | Register with Claude Code    |
-| `--vscode`  | bool | false   | Install VS Code extension    |
-| `--force`   | bool | false   | Overwrite existing entries   |
+| Flag       | Type | Default | Description                |
+| ---------- | ---- | ------- | -------------------------- |
+| `--code`   | bool | false   | Register with Claude Code  |
+| `--vscode` | bool | false   | Install VS Code extension  |
+| `--force`  | bool | false   | Overwrite existing entries |
 
-With no flags, all three are attempted. Use flags to target specific tools.
+With no flags, both are attempted. Use flags to target a specific tool.
 
-### Claude Desktop (`--desktop`)
-
-```bash
-muninn install --desktop
-```
-
-Writes a server entry to Claude Desktop's JSON config file. The config location
-is platform-dependent:
-
-| Platform | Config path                                                       |
-| -------- | ----------------------------------------------------------------- |
-| Linux    | `~/.config/claude-desktop/claude_desktop_config.json`             |
-| macOS    | `~/Library/Application Support/Claude/claude_desktop_config.json` |
-| Windows  | `%APPDATA%\Claude\claude_desktop_config.json`                     |
-
-After installing, restart Claude Desktop. Muninn's 9 tools will appear in
-conversations — Claude can save snippets, search your knowledge base, create and
-read notes, and manage tags on your behalf.
+> **Note:** Claude Desktop's chat interface does not yet support the HTTP MCP
+> transport that the Muninn daemon uses. Use Claude Code (via the desktop app or
+> terminal) to access Muninn's tools.
 
 ### Claude Code (`--code`)
 
@@ -92,10 +76,10 @@ read notes, and manage tags on your behalf.
 muninn install --code
 ```
 
-Same as above, but for Claude Code (the CLI/editor agent). Writes the entry to
-`~/.claude.json`. This lets Claude Code access your knowledge base during
-terminal sessions — useful for recalling snippets, referencing past decisions,
-or saving context without leaving the terminal.
+Writes the daemon URL to `~/.claude.json`. This lets Claude Code access your
+knowledge base during terminal sessions and inside the Claude Desktop app —
+useful for recalling snippets, referencing past decisions, or saving context
+without leaving the editor.
 
 ### VS Code (`--vscode`)
 
@@ -125,7 +109,6 @@ This is useful after rebuilding the binary at a new path.
 ### Output
 
 ```
-  Claude Desktop: wrote muninn server to /home/you/.config/claude-desktop/claude_desktop_config.json
   Claude Code: wrote muninn server to /home/you/.claude.json
   VS Code: installed muninn-0.1.0.vsix
   Restart clients to activate.
@@ -135,8 +118,8 @@ This is useful after rebuilding the binary at a new path.
 
 ## daemon
 
-Start the MCP daemon. This is a persistent HTTP server that Claude Desktop and
-Claude Code connect to after `muninn install`.
+Start the MCP daemon. This is a persistent HTTP server that Claude Code
+connects to after `muninn install`.
 
 ```
 muninn daemon
@@ -150,8 +133,8 @@ the daemon is a single long-running process. One database connection, one ONNX
 embedding session, all clients share it. No orphan processes, no duplicated
 memory.
 
-Start the daemon before using Claude Desktop or Claude Code with Muninn. It
-shuts down cleanly on `Ctrl+C` or `SIGTERM`.
+Start the daemon before using Claude Code with Muninn. It shuts down cleanly on
+`Ctrl+C` or `SIGTERM`.
 
 ### Autostart on login
 

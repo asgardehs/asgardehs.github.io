@@ -27,19 +27,8 @@ use them.
 muninn install
 ```
 
-With no flags, this registers with everything it can find. Use flags to target
-specific tools:
-
-### `--desktop` — Claude Desktop
-
-```bash
-muninn install --desktop
-```
-
-Writes a server entry to Claude Desktop's config file pointing at the Muninn
-daemon. Start the daemon with `muninn daemon`, then restart Claude Desktop —
-Muninn's tools will appear in the conversation. Claude can save snippets,
-search your knowledge base, and create notes on your behalf mid-conversation.
+With no flags, this registers with both Claude Code and VS Code. Use flags to
+target a specific tool:
 
 ### `--code` — Claude Code
 
@@ -47,10 +36,10 @@ search your knowledge base, and create notes on your behalf mid-conversation.
 muninn install --code
 ```
 
-Same as above, but for Claude Code (the CLI/editor agent). Writes the entry to
-`~/.claude.json`. This lets Claude Code access your knowledge base during
-terminal sessions — useful for recalling snippets, referencing past decisions,
-or saving context without leaving the terminal.
+Writes the daemon URL to `~/.claude.json`. Start the daemon with
+`muninn daemon`, then Claude Code can access your knowledge base — save
+snippets, search notes, and manage context mid-conversation. Works in both the
+Claude Desktop app (via Claude Code) and the terminal.
 
 ### `--vscode` — VS Code Extension
 
