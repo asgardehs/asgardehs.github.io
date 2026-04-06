@@ -118,6 +118,7 @@ layout: default
 </style>
 
 <div class="site-nav">
+  <a href="/docs/odin/">Odin Docs</a>
   <a href="/docs/muninn/">Muninn Docs</a>
   <a href="/docs/heimdall/">Heimdall Docs</a>
   <a href="/about/">About</a>
@@ -165,8 +166,9 @@ Open-source compliance tools built for EHS professionals who need reliable, loca
   </div>
   <div class="tool-card">
     <h3><a href="https://github.com/asgardehs/odin">Odin</a> <span class="badge badge-dev">in development</span></h3>
-    <p>Web-based compliance management. Facility inspections, regulatory tracking, and a unified dashboard for the entire ecosystem.</p>
-    <span class="tech">Web UI &middot; Facility Management &middot; Inspection Tracking</span>
+    <p>Desktop compliance management for manufacturing. Incidents, chemicals, training, and a schema builder for custom data — all in a single binary.</p>
+    <span class="tech">Go + React &middot; SQLite &middot; Zero CGO &middot; OSHA / EPA / RCRA</span>
+    <div class="links"><a href="/docs/odin/">Documentation</a><a href="/docs/odin/architecture/">Architecture</a></div>
   </div>
 </div>
 

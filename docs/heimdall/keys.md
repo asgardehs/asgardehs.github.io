@@ -26,11 +26,9 @@ Desktop app configuration.
 
 Knowledge base configuration.
 
-| Key            | Type   | Default                                  | Description                |
-| -------------- | ------ | ---------------------------------------- | -------------------------- |
-| `vault_path`   | path   | _(empty)_                                | Path to note vault         |
-| `database_path`| path   | _(empty)_                                | Path to Muninn SQLite DB   |
-| `model_name`   | string | `"nomic-ai/nomic-embed-text-v1.5"`       | Embedding model identifier |
+| Key            | Type   | Default     | Description                |
+| -------------- | ------ | ----------- | -------------------------- |
+| `vault_path`   | path   | _(empty)_   | Path to note vault         |
 
 ## huginn
 

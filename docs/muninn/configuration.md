@@ -8,22 +8,32 @@ permalink: /docs/muninn/configuration/
 
 # Configuration
 
-Muninn is configured entirely through environment variables — there is no config
-file. All variables are optional; the defaults follow platform conventions.
+Muninn resolves its vault path using a three-tier precedence chain. All
+configuration is optional; the defaults follow platform conventions.
 
-## Environment Variables
+## Vault Path Resolution
 
-| Variable            | Default                      | Description              |
-| ------------------- | ---------------------------- | ------------------------ |
-| `MUNINN_VAULT_PATH` | Platform default (see below) | Vault directory location |
+Muninn checks these sources in order and uses the first non-empty value:
 
-### Examples
+1. **`MUNINN_VAULT_PATH` environment variable** — always wins
+2. **[Heimdall](/docs/heimdall/) config** (`muninn.vault_path`) — shared config
+   store used across Asgard tools
+3. **Platform default** (see below)
 
-Use a custom vault location:
+### Setting via environment variable
 
 ```bash
 export MUNINN_VAULT_PATH="$HOME/knowledge"
 ```
+
+### Setting via Heimdall
+
+```bash
+heimdall config set muninn vault_path /home/you/knowledge
+```
+
+This persists the path so other Asgard tools can discover your vault.
+`muninn init` writes the vault path to Heimdall automatically.
 
 ---
 
