@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="{{ '/' | relative_url }}" class="brand" aria-label="Asgard EHS — home">
+      <img src="{{ '/assets/img/asgard-ehs-logo.png' | relative_url }}" alt="Asgard EHS">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ '/docs/' | relative_url }}">Docs</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="https://github.com/asgardehs" rel="noopener">GitHub</a>
+      <button class="theme-toggle" aria-label="Toggle theme" type="button">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<script>
+  (function () {
+    var btn = document.querySelector('.theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>

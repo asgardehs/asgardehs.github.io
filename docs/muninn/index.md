@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Muninn Documentation
 permalink: /docs/muninn/
 ---

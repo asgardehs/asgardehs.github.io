@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Database Design
 permalink: /docs/odin/database/
 ---

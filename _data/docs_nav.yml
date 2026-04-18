@@ -1,0 +1,34 @@
+- title: Muninn
+  status: active
+  pages:
+    - { title: Overview,       url: /docs/muninn/ }
+    - { title: Requirements,   url: /docs/muninn/requirements/ }
+    - { title: Quick start,    url: /docs/muninn/quickstart/ }
+    - { title: Commands,       url: /docs/muninn/commands/ }
+    - { title: Notes,          url: /docs/muninn/notes/ }
+    - { title: Search,         url: /docs/muninn/search/ }
+    - { title: Setup,          url: /docs/muninn/server/ }
+    - { title: Configuration,  url: /docs/muninn/configuration/ }
+
+- title: Heimdall
+  status: active
+  pages:
+    - { title: Overview,       url: /docs/heimdall/ }
+    - { title: Quick start,    url: /docs/heimdall/quickstart/ }
+    - { title: Go API,         url: /docs/heimdall/api/ }
+    - { title: CLI,            url: /docs/heimdall/cli/ }
+    - { title: Keys,           url: /docs/heimdall/keys/ }
+
+- title: Odin
+  status: dev
+  pages:
+    - { title: Overview,       url: /docs/odin/ }
+    - { title: Architecture,   url: /docs/odin/architecture/ }
+    - { title: Database,       url: /docs/odin/database/ }
+    - { title: Integration,    url: /docs/odin/integration/ }
+    - { title: Schema builder, url: /docs/odin/schema-builder/ }
+
+- title: Design system
+  status: active
+  pages:
+    - { title: "Nótt & Dagr theme", url: /docs/theme/ }

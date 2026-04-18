@@ -1,10 +1,9 @@
 ---
-layout: default
-title: About the Developer
+layout: page
+title: About the developer
+description: The person behind Asgard — an EHS professional who learned to code to fix his own tools.
 permalink: /developer/
 ---
-
-## About the Developer
 
 Asgard is built by Adam Bick — a Certified EHS Manager and ISO Lead Auditor with over 15 years in automotive manufacturing, who taught himself to code to solve the problems he kept running into on the job.
 

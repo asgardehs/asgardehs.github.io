@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Heimdall Quick Start
 permalink: /docs/heimdall/quickstart/
 ---

@@ -1,10 +1,9 @@
 ---
-layout: default
-title: About
+layout: page
+title: About Asgard EHS
+description: Open-source tools built to solve real problems in environmental health and safety compliance.
 permalink: /about/
 ---
-
-## About Asgard EHS
 
 Asgard is a suite of open-source tools built to solve real problems in environmental health and safety compliance. The project grew out of frustration with the available options --- expensive SaaS platforms that lock in your data, or spreadsheets and paper processes that don't scale.
 

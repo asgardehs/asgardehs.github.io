@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Configuration Keys
 permalink: /docs/heimdall/keys/
 ---

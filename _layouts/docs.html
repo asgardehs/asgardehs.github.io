@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<div class="docs-container">
+  <aside class="docs-sidebar" aria-label="Documentation">
+    <a class="docs-sidebar-home" href="{{ '/docs/' | relative_url }}">Documentation</a>
+    {%- for project in site.data.docs_nav -%}
+    <section class="docs-nav-section">
+      <h4 class="docs-nav-heading">{{ project.title }}</h4>
+      <ul>
+        {%- for p in project.pages -%}
+        <li>
+          <a href="{{ p.url | relative_url }}"
+             {%- if page.url == p.url %} class="is-active" aria-current="page"{% endif -%}>
+            {{ p.title }}
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+    {%- endfor -%}
+  </aside>
+  <article class="docs-content">
+    {%- if page.title and page.hide_title != true -%}
+    <header class="docs-header">
+      <h1>{{ page.title }}</h1>
+      {%- if page.description %}<p class="docs-lede">{{ page.description }}</p>{% endif -%}
+    </header>
+    {%- endif -%}
+    <div class="docs-body">
+      {{ content }}
+    </div>
+  </article>
+</div>

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Heimdall Go API
 permalink: /docs/heimdall/api/
 ---

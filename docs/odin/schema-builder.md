@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Schema Builder
 permalink: /docs/odin/schema-builder/
 ---

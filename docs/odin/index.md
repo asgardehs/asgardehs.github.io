@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Odin Documentation
 permalink: /docs/odin/
 ---

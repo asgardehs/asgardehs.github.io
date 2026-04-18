@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Heimdall CLI Reference
 permalink: /docs/heimdall/cli/
 ---

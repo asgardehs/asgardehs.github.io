@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Ecosystem Integration
 permalink: /docs/odin/integration/
 ---

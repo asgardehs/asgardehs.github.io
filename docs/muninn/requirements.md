@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Requirements
 permalink: /docs/muninn/requirements/
 ---

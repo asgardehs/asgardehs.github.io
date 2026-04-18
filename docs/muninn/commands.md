@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Command Reference
 permalink: /docs/muninn/commands/
 ---
