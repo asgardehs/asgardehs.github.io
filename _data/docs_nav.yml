@@ -19,6 +19,14 @@
     - { title: CLI,            url: /docs/heimdall/cli/ }
     - { title: Keys,           url: /docs/heimdall/keys/ }
 
+- title: Ratatoskr
+  status: active
+  pages:
+    - { title: Overview,              url: /docs/ratatoskr/ }
+    - { title: Quick start,           url: /docs/ratatoskr/quickstart/ }
+    - { title: Embedding libraries,   url: /docs/ratatoskr/embedding/ }
+    - { title: Releases & platforms,  url: /docs/ratatoskr/releases/ }
+
 - title: Odin
   status: dev
   pages:
@@ -32,3 +40,4 @@
   status: active
   pages:
     - { title: "Nótt & Dagr theme", url: /docs/theme/ }
+    - { title: Brand guidelines,    url: /docs/brand/ }

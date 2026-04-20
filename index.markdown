@@ -47,7 +47,7 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
   <div class="section-inner">
     <header class="section-header">
       <span class="section-eyebrow">The ecosystem</span>
-      <h2>Four tools. One architecture.</h2>
+      <h2>Five tools. One architecture.</h2>
       <p class="section-lede">Each named for a figure in Norse myth, each built to do one job well.</p>
     </header>
     <div class="tools">
@@ -73,6 +73,18 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
         <div class="tool-links">
           <a href="{{ '/docs/heimdall/' | relative_url }}">Documentation</a>
           <a href="{{ '/docs/heimdall/quickstart/' | relative_url }}">Quick start</a>
+        </div>
+      </article>
+      <article class="tool">
+        <div class="tool-head">
+          <h3><a href="https://github.com/asgardehs/ratatoskr">Ratatoskr</a></h3>
+          <span class="status status-active">Active</span>
+        </div>
+        <p>Embedded Python distribution for Go applications. Ships the interpreter inside the binary and invokes it via subprocess — no CGO, no user installs, straightforward cross-compilation.</p>
+        <div class="tool-tech">Go library &middot; python-build-standalone &middot; Apache-2.0</div>
+        <div class="tool-links">
+          <a href="{{ '/docs/ratatoskr/' | relative_url }}">Documentation</a>
+          <a href="{{ '/docs/ratatoskr/quickstart/' | relative_url }}">Quick start</a>
         </div>
       </article>
       <article class="tool">

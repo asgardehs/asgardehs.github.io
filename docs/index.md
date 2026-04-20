@@ -22,6 +22,14 @@ permalink: /docs/
     <p>Shared configuration library. Schema-validated settings, change notifications, and a CLI for managing keys.</p>
     <span class="docs-hub-cta">Read docs &rarr;</span>
   </a>
+  <a class="docs-hub-card" href="{{ '/docs/ratatoskr/' | relative_url }}">
+    <div class="docs-hub-head">
+      <h3>Ratatoskr</h3>
+      <span class="status status-active">Active</span>
+    </div>
+    <p>Embedded Python distribution for Go applications. Ships the interpreter inside the binary and invokes it via subprocess.</p>
+    <span class="docs-hub-cta">Read docs &rarr;</span>
+  </a>
   <a class="docs-hub-card" href="{{ '/docs/odin/' | relative_url }}">
     <div class="docs-hub-head">
       <h3>Odin</h3>
