@@ -22,8 +22,8 @@ heimdall config get <namespace> <key>
 ### Example
 
 ```bash
-$ heimdall config get muninn vault_path
-muninn.vault_path = /home/you/.local/share/muninn (source: default, type: path)
+$ heimdall config get odin database_path
+odin.database_path = /home/you/.local/share/odin/odin.db (source: default, type: path)
 ```
 
 Secrets are masked:
@@ -70,12 +70,10 @@ heimdall config list <namespace>
 
 ```bash
 $ heimdall config list ai
-  enabled      = false       (default)
-  provider     = anthropic   (user)
-  api_key      = sk-a...xyz9 (user)
-  odin_access  = []          (default)
-  muninn_access = []         (default)
-  huginn_access = []         (default)
+  enabled     = false       (default)
+  provider    = anthropic   (user)
+  api_key     = sk-a...xyz9 (user)
+  odin_access = []          (default)
 ```
 
 ---

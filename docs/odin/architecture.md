@@ -313,8 +313,6 @@ Reports are named queries mapping to SQL views or parameterized SQL:
 ### Export
 
 - **CSV**: Pure Go serialization, served as download
-- **PDF via Huginn**: Odin formats data as markdown + YAML frontmatter, sends to
-  Huginn for rendering. If Huginn unavailable, PDF button disabled, CSV offered.
 - **Custom tables**: Reportable via the same engine using Schema Builder's query
   builder.
 
@@ -324,7 +322,7 @@ Reports are named queries mapping to SQL views or parameterized SQL:
 
 When the database has no `current_establishment_id`, the app routes to `/setup`:
 
-1. **Welcome** — intro, detect ecosystem tools
+1. **Welcome** — intro and project overview
 2. **Create Establishment** — name, address, NAICS code
 3. **Choose Modules** — incidents, chemicals, training (checkboxes)
 4. **Quick Start** — import employees from CSV, add first chemical

@@ -39,5 +39,4 @@ department.
   data flow
 - [Schema Builder](/docs/odin/schema-builder/) — custom table engine
 - [Database Design](/docs/odin/database/) — schema summary across all modules
-- [Integration](/docs/odin/integration/) — ecosystem connections (Heimdall,
-  Muninn, Huginn)
+- [Integration](/docs/odin/integration/) — optional Heimdall configuration

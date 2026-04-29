@@ -10,10 +10,11 @@ _See [Attribution](#attribution) for credits._
 ## Overview
 
 Nótt and Dagr are paired dark/light color themes designed for code editors,
-terminal emulators, and the Asgard EHS desktop applications (Muninn, Huginn,
-Odin, Heimdall, Bifrost). They share a common role architecture so that
-switching modes preserves semantic meaning — a keyword is the same _kind_ of
-thing in both themes, even when the specific color shifts for the surface.
+terminal emulators, and the Asgard EHS desktop application (Odin), with
+matching tokens used by Heimdall's CLI. They share a common role architecture
+so that switching modes preserves semantic meaning — a keyword is the same
+_kind_ of thing in both themes, even when the specific color shifts for the
+surface.
 
 **Variants:**
 
@@ -366,8 +367,8 @@ derived from Dracula's palette.
 
 ---
 
-_Part of the Asgard EHS ecosystem. Maintained alongside Muninn, Huginn, Odin,
-Heimdall, and Bifrost._
+_Part of the Asgard EHS ecosystem. Maintained alongside Odin, Heimdall, and
+Ratatoskr._
 
 <script>
   (function () {

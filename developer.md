@@ -30,11 +30,29 @@ Adam works primarily in **Go** and **Python**, with additional experience in **N
 
 ### On AI
 
-Adam believes AI is most powerful as a partnership — a symbiotic relationship where AI handles what it does faster than humans, and humans provide the judgment, context, and domain expertise that AI lacks. Every tool in Asgard is built with this philosophy. Muninn integrates directly with Claude through MCP, not to replace the person using it, but to make their workflow faster and their knowledge more accessible.
+Adam believes AI is most powerful as a partnership — a symbiotic relationship where AI handles what it does faster than humans, and humans provide the judgment, context, and domain expertise that AI lacks. Asgard is built with this philosophy: AI assistance where it earns its place, human judgment where the stakes demand it.
 
 The right way to use AI isn't to hand over the wheel. It's to have a capable co-pilot.
 
 ### Get in Touch
 
 - GitHub: [asgardehs](https://github.com/asgardehs)
-- Email: [muninn.developer@protonmail.com](mailto:muninn.developer@protonmail.com)
+- Email: [asgardehs@proton.me](mailto:asgardehs@proton.me)
+
+### Verifying Commits
+
+All commits across the Asgard EHS repositories are signed. The signing key
+fingerprint is:
+
+```
+B38E E5D8 26C3 2451 79EC  1191 A91B 7835 538F 03C3
+```
+
+Import the public key from a keyserver to verify locally:
+
+```bash
+gpg --recv-keys A91B7835538F03C3
+```
+
+A formal security policy describing the disclosure process and expected
+response times is in progress and will reference this key.

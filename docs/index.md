@@ -6,12 +6,12 @@ permalink: /docs/
 ---
 
 <div class="docs-hub">
-  <a class="docs-hub-card" href="{{ '/docs/muninn/' | relative_url }}">
+  <a class="docs-hub-card" href="{{ '/docs/odin/' | relative_url }}">
     <div class="docs-hub-head">
-      <h3>Muninn</h3>
-      <span class="status status-active">Active</span>
+      <h3>Odin</h3>
+      <span class="status status-dev">In development</span>
     </div>
-    <p>Flat-file knowledge base. Markdown vault with text search, wikilinks, and an LSP server for VS Code.</p>
+    <p>Desktop compliance management. Incidents, chemicals, training, and a schema builder for custom data.</p>
     <span class="docs-hub-cta">Read docs &rarr;</span>
   </a>
   <a class="docs-hub-card" href="{{ '/docs/heimdall/' | relative_url }}">
@@ -30,20 +30,4 @@ permalink: /docs/
     <p>Embedded Python distribution for Go applications. Ships the interpreter inside the binary and invokes it via subprocess.</p>
     <span class="docs-hub-cta">Read docs &rarr;</span>
   </a>
-  <a class="docs-hub-card" href="{{ '/docs/odin/' | relative_url }}">
-    <div class="docs-hub-head">
-      <h3>Odin</h3>
-      <span class="status status-dev">In development</span>
-    </div>
-    <p>Desktop compliance management. Incidents, chemicals, training, and a schema builder for custom data.</p>
-    <span class="docs-hub-cta">Read docs &rarr;</span>
-  </a>
-  <div class="docs-hub-card is-disabled">
-    <div class="docs-hub-head">
-      <h3>Huginn</h3>
-      <span class="status status-dev">In development</span>
-    </div>
-    <p>Markdown-to-PDF document generation with a component system. Documentation coming soon.</p>
-    <span class="docs-hub-cta">Coming soon</span>
-  </div>
 </div>

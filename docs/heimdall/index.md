@@ -6,9 +6,9 @@ permalink: /docs/heimdall/
 
 # Heimdall
 
-Shared configuration library for the Asgard ecosystem. Odin, Muninn, and Huginn
-import Heimdall directly to read and write validated configuration. A CLI is
-included for manual management.
+Shared configuration library for the Asgard ecosystem. Odin imports Heimdall
+directly to read and write validated configuration, and any other Go project
+can do the same. A CLI is included for manual management.
 
 ## Getting Started
 

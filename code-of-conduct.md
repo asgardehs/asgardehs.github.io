@@ -96,7 +96,7 @@ and this Code of Conduct reinforces encouraged behaviors and norms that can help
 avoid conflicts and minimize harm.
 
 When an incident does occur, it is important to report it promptly. To report a
-possible violation, email **muninn.developer@protonmail.com**. Reports are read
+possible violation, email **asgardehs@proton.me**. Reports are read
 and handled by the project's Community Moderators (see
 [Moderation](#moderation) below). Include as much context as you are
 comfortable sharing: what happened, where it happened, who was involved, and
@@ -187,7 +187,7 @@ For the Asgard EHS project, community spaces include (but are not limited to):
 
 Asgard EHS is currently a solo-maintained project. The role of Community
 Moderator is held by the project maintainer, Adam Bick
-(muninn.developer@protonmail.com). Additional moderators will be added as the
+(asgardehs@proton.me). Additional moderators will be added as the
 project grows, and this section will be updated when that happens.
 
 A single maintainer receiving reports about their own project is an inherent

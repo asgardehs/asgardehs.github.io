@@ -38,7 +38,7 @@ func main() {
     defer h.Close()
 
     // Read a config value
-    entry, err := h.Get("muninn", "vault_path")
+    entry, err := h.Get("odin", "database_path")
     if err != nil {
         panic(err)
     }

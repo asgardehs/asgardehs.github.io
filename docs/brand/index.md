@@ -27,16 +27,14 @@ The tools in the ecosystem are:
 
 | Tool           | Role                                              | Status          |
 | -------------- | ------------------------------------------------- | --------------- |
-| **Muninn**     | Knowledge base and note management                | Active          |
 | **Heimdall**   | Shared configuration library                      | Active          |
 | **Ratatoskr**  | Embedded Python distribution for Go applications  | Active          |
 | **Odin**       | Desktop compliance management for manufacturing   | In development  |
-| **Huginn**     | Markdown-to-PDF document generation               | In development  |
 
 Each tool is a proper noun and is always capitalized when referring to the
-product. The lowercase form (`muninn`, `odin`, etc.) is used only when
-referring to the binary or the command. "I ran `muninn search`" is correct;
-"muninn is a knowledge base" is not.
+product. The lowercase form (`heimdall`, `odin`, etc.) is used only when
+referring to the binary or the command. "I ran `heimdall config`" is correct;
+"odin is a compliance tool" is not.
 
 ### Naming Rules for Future Tools
 
@@ -62,15 +60,15 @@ matched to function rather than chosen for flavor.
 
 ### Thematic Groupings
 
-Three tools in the ecosystem share a common theme: **Muninn**, **Huginn**,
-and **Ratatoskr** are all messenger creatures in the mythology. Muninn and
-Huginn are Odin's ravens, carrying memory and thought; Ratatoskr is the
-squirrel of Yggdrasil, carrying messages between the eagle at the crown and
-the dragon at the roots. This grouping is not a requirement for future
-naming, but it is worth preserving when the fit is natural. If a future tool
-is primarily about carrying, shuttling, or relaying — logs, events,
-inter-process messages — a messenger creature is the right family of names
-to draw from.
+**Ratatoskr** is the ecosystem's current messenger figure. In the mythology,
+the squirrel of Yggdrasil runs the length of the world tree, carrying
+messages between the eagle at the crown and the dragon Níðhöggr at the
+roots. The library carries calls and replies between a Go process and the
+embedded Python interpreter — the same role, expressed in software. This
+match between a figure's traditional role and a tool's function is the kind
+of fit future names should aim for. If a future tool is primarily about
+carrying, shuttling, or relaying — logs, events, inter-process messages —
+a messenger creature is the right family of names to draw from.
 
 ## Logo and Wordmark
 
@@ -243,21 +241,22 @@ technical content is worse than plain text that delivers it.
 
 **Do:**
 
-> If Huginn is not available, PDF buttons are disabled with an explanation.
-> CSV export is always available as a fallback.
+> If Heimdall is not available, Odin falls back to its own settings table.
+> The application works the same.
 
 **Don't:**
 
-> Huginn integration provides an enhanced PDF experience for users looking
-> to take their reporting to the next level.
+> Heimdall integration unlocks a powerful new dimension of seamless
+> cross-tool configuration.
 
 **Do:**
 
-> Muninn is the first tool ready for use.
+> Heimdall and Ratatoskr are available as Go modules. Odin is in active
+> development.
 
 **Don't:**
 
-> We're excited to announce that Muninn has officially launched!
+> We're excited to announce that Ratatoskr has officially launched!
 
 ### Tone by Context
 
@@ -278,31 +277,40 @@ technical content is worse than plain text that delivers it.
 
 ## Usage and Attribution
 
-Asgard EHS uses two code licenses, matched to the role each tool plays.
-**Apache-2.0** covers the infrastructure libraries that other projects are
-expected to import (Heimdall and Ratatoskr). **GPL-3.0** covers the
-end-user products (Muninn, Huginn, Odin). The rule is simple: if it is a
-library, it is Apache-2.0; if it is a product, it is GPL-3.0. This split
-lets downstream developers adopt the libraries without licensing friction
-while preserving strong user protections on the products themselves.
+Asgard EHS uses three licenses, matched to what each component is:
 
-The project name, the individual tool names (Muninn, Heimdall, Ratatoskr,
-Odin, Huginn), and the logo are separate from either code license. The
-section below covers how those names and marks may be used, and applies
-uniformly across the family regardless of which license governs the code.
+- **Apache-2.0** covers **infrastructure libraries** intended to be imported
+  by other projects. Permissive licensing removes adoption friction for
+  downstream developers.
+- **GPL-3.0** covers **end-user applications** distributed as runnable
+  binaries. Strong copyleft preserves user protections and keeps
+  compliance-critical functionality auditable.
+- **CC BY-SA 4.0** covers **creative works** — ontologies, research notes,
+  written guides, illustrations, and other content distinct from runnable
+  software. The same share-alike spirit as GPL-3.0, applied to the medium
+  that fits.
+
+The rule is simple: if it is a library to import, it is Apache-2.0; if it is
+an application to run, it is GPL-3.0; if it is a written or illustrative
+work, it is CC BY-SA 4.0.
+
+The project name, the individual tool names, and the logo are separate from
+any code or content license. The sections below cover how those names and
+marks may be used, and apply uniformly regardless of which license governs
+the underlying work.
 
 The project's posture is **permissive for legitimate use, protective against
-confusion**. The goal is to ensure that when someone sees the name "Asgard
-EHS" or "Muninn" attached to something, they can trust that it is in fact
-that thing — or a close, compatible derivative.
+confusion**. The goal is to ensure that when someone sees the Asgard EHS
+name or any of its tool names attached to something, they can trust that it
+is in fact that thing — or a close, compatible derivative.
 
 ### What Is Permitted Without Asking
 
 - **Unmodified redistribution.** If you repackage an official Asgard EHS
-  release unchanged — a Linux distribution packaging Muninn, a container
-  image wrapping Odin, a mirror of the source code — you may use the project
-  names. The binary is what the user expects, and calling it by its name
-  serves them.
+  release unchanged — a Linux distribution packaging an application, a
+  container image wrapping a binary, a mirror of the source code — you may
+  use the project names. The artifact is what the user expects, and calling
+  it by its name serves them.
 - **Compatible forks that track upstream.** Forks that maintain
   compatibility with the official project and regularly merge from upstream
   may continue using the name. The test is whether a user of the fork would
@@ -312,9 +320,10 @@ that thing — or a close, compatible derivative.
   and logos freely. You do not need permission to write about Asgard EHS or
   any of its tools.
 - **Compatibility statements.** Third-party products that work with an
-  Asgard EHS tool may use phrasing like "Works with Muninn," "Compatible
-  with Odin," or "Powered by Heimdall." The third-party product's own
-  branding must remain distinct; the statement must be factual.
+  Asgard EHS tool may use phrasing like "Works with [tool name],"
+  "Compatible with [tool name]," or "Powered by [tool name]." The
+  third-party product's own branding must remain distinct; the statement
+  must be factual.
 - **Personal and internal use.** Any internal use within an organization —
   intranets, internal documentation, training materials — may reference the
   project names and logos without permission.
@@ -330,9 +339,9 @@ that thing — or a close, compatible derivative.
   pulls from the official project has become its own project and must
   rename to avoid user confusion.
 - **Derivative products with added commercial features.** A commercial
-  distribution that bundles Asgard EHS tools with proprietary extensions
-  must use its own product name. "Acme Corp's Muninn Pro" is not permitted;
-  "Acme Corp's Knowledge Suite (built on Muninn)" is.
+  distribution that bundles an Asgard EHS tool with proprietary extensions
+  must use its own product name. "Acme Corp's [Tool] Pro" is not permitted;
+  "Acme Corp's [Suite Name] (built on [Tool])" is.
 
 ### What Requires Permission
 
@@ -346,10 +355,10 @@ that thing — or a close, compatible derivative.
 - **Domains and social media handles.** Registering domains or social
   accounts using the Asgard EHS name or tool names requires permission.
   This does not apply to subdomains or handles clearly marked as
-  unofficial (e.g., `asgard-community.example.com`, `@muninn_fan`).
+  unofficial (e.g., `asgard-community.example.com`, `@asgard_fan`).
 
 To request permission, email
-[muninn.developer@protonmail.com](mailto:muninn.developer@protonmail.com)
+[asgardehs@proton.me](mailto:asgardehs@proton.me)
 with a description of the proposed use.
 
 ### Attribution
@@ -367,4 +376,5 @@ repository URL.
 ---
 
 *This document will evolve as the project grows. Material changes will be
-recorded in the project's changelog and announced in release notes.*
+recorded in the [project changelog](/changelog/) and announced in release
+notes.*

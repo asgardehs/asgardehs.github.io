@@ -11,7 +11,7 @@ Every tool in the ecosystem is written in Go, ships as a single binary, and stor
 
 ### Who builds this
 
-Asgard is built by an EHS compliance professional who writes code to solve the problems he encounters in the field. If you work in EHS and have ideas, feedback, or want to contribute, reach out at [muninn.developer@protonmail.com](mailto:muninn.developer@protonmail.com) or open an issue on any of the repos.
+Asgard is built by an EHS compliance professional who writes code to solve the problems he encounters in the field. If you work in EHS and have ideas, feedback, or want to contribute, reach out at [asgardehs@proton.me](mailto:asgardehs@proton.me) or open an issue on any of the repos.
 
 ### Contributing
 

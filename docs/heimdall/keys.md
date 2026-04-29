@@ -22,23 +22,6 @@ Desktop app configuration.
 | `theme`        | string  | `"system"` | UI theme                   |
 | `auto_backup`  | boolean | `"true"`   | Enable automatic backups   |
 
-## muninn
-
-Knowledge base configuration.
-
-| Key            | Type   | Default     | Description                |
-| -------------- | ------ | ----------- | -------------------------- |
-| `vault_path`   | path   | _(empty)_   | Path to note vault         |
-
-## huginn
-
-AI/analysis component configuration.
-
-| Key            | Type   | Default    | Description                     |
-| -------------- | ------ | ---------- | ------------------------------- |
-| `default_theme`| string | `"default"`| Default rendering theme         |
-| `output_dir`   | path   | _(empty)_  | Output directory for renders    |
-
 ## ai
 
 Cross-cutting AI configuration. Disabled by default — opt-in per user.
@@ -49,8 +32,6 @@ Cross-cutting AI configuration. Disabled by default — opt-in per user.
 | `provider`      | enum    | _(empty)_ | AI provider: `anthropic`, `openai` |
 | `api_key`       | secret  | _(empty)_ | API key (masked in CLI output)     |
 | `odin_access`   | array   | `"[]"`    | Modules AI can access in Odin      |
-| `muninn_access` | array   | `"[]"`    | Features AI can access in Muninn   |
-| `huginn_access` | array   | `"[]"`    | Features AI can access in Huginn   |
 
 ---
 

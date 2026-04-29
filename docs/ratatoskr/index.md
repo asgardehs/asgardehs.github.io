@@ -58,7 +58,7 @@ is:
 - **Source:** [github.com/asgardehs/ratatoskr](https://github.com/asgardehs/ratatoskr)
 - **Code of Conduct:** see the project [Code of Conduct](/code-of-conduct/)
 - **Security:** report vulnerabilities to
-  [muninn.developer@protonmail.com](mailto:muninn.developer@protonmail.com)
+  [asgardehs@proton.me](mailto:asgardehs@proton.me)
 
 ## Name
 

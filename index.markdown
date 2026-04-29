@@ -10,7 +10,7 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
     <h1>Compliance tools that live on your machine.</h1>
     <p class="hero-sub">Single-binary Go applications for Environmental Health &amp; Safety professionals. Use them standalone, or wire them together through shared configuration.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="{{ '/docs/muninn/' | relative_url }}">Read the docs</a>
+      <a class="btn btn-primary" href="{{ '/docs/odin/' | relative_url }}">Read the docs</a>
       <a class="btn btn-secondary" href="https://github.com/asgardehs" rel="noopener">View on GitHub</a>
     </div>
   </div>
@@ -47,20 +47,20 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
   <div class="section-inner">
     <header class="section-header">
       <span class="section-eyebrow">The ecosystem</span>
-      <h2>Five tools. One architecture.</h2>
-      <p class="section-lede">Each named for a figure in Norse myth, each built to do one job well.</p>
+      <h2>One application. Two supporting libraries.</h2>
+      <p class="section-lede">Odin is the desktop application. Heimdall and Ratatoskr are the libraries that power it — and stand on their own as open-source Go packages.</p>
     </header>
     <div class="tools">
       <article class="tool">
         <div class="tool-head">
-          <h3><a href="https://github.com/asgardehs/muninn">Muninn</a></h3>
-          <span class="status status-active">Active</span>
+          <h3><a href="https://github.com/asgardehs/odin">Odin</a></h3>
+          <span class="status status-dev">In development</span>
         </div>
-        <p>Knowledge base and note management. Flat-file markdown vault with text search and wikilinks. Edit in any editor, search from the terminal.</p>
-        <div class="tool-tech">CLI &middot; LSP / VS Code &middot; Flat files</div>
+        <p>Desktop compliance management for manufacturing. Incidents, chemicals, training, and a schema builder for custom data — all in a single binary.</p>
+        <div class="tool-tech">Wails v2 + Svelte &middot; SQLite &middot; OSHA / EPA / RCRA</div>
         <div class="tool-links">
-          <a href="{{ '/docs/muninn/' | relative_url }}">Documentation</a>
-          <a href="{{ '/docs/muninn/quickstart/' | relative_url }}">Quick start</a>
+          <a href="{{ '/docs/odin/' | relative_url }}">Documentation</a>
+          <a href="{{ '/docs/odin/architecture/' | relative_url }}">Architecture</a>
         </div>
       </article>
       <article class="tool">
@@ -68,7 +68,7 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
           <h3><a href="https://github.com/asgardehs/heimdall">Heimdall</a></h3>
           <span class="status status-active">Active</span>
         </div>
-        <p>Shared configuration library for the ecosystem. Schema-validated settings, change notifications, cross-platform paths. Imported directly by each tool.</p>
+        <p>Shared configuration library. Schema-validated settings, change notifications, cross-platform paths. Used by Odin and available as a standalone Go package.</p>
         <div class="tool-tech">Go library &middot; CLI &middot; SQLite &middot; Schema validation</div>
         <div class="tool-links">
           <a href="{{ '/docs/heimdall/' | relative_url }}">Documentation</a>
@@ -87,26 +87,6 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
           <a href="{{ '/docs/ratatoskr/quickstart/' | relative_url }}">Quick start</a>
         </div>
       </article>
-      <article class="tool">
-        <div class="tool-head">
-          <h3><a href="https://github.com/asgardehs/huginn">Huginn</a></h3>
-          <span class="status status-dev">In development</span>
-        </div>
-        <p>Markdown-to-PDF document generation with a component system. Professional theming, automatic pagination, and a grid layout engine.</p>
-        <div class="tool-tech">Goldmark &middot; Maroto v2 &middot; YAML themes</div>
-      </article>
-      <article class="tool">
-        <div class="tool-head">
-          <h3><a href="https://github.com/asgardehs/odin">Odin</a></h3>
-          <span class="status status-dev">In development</span>
-        </div>
-        <p>Desktop compliance management for manufacturing. Incidents, chemicals, training, and a schema builder for custom data — all in a single binary.</p>
-        <div class="tool-tech">Go + React &middot; SQLite &middot; Zero CGO &middot; OSHA / EPA / RCRA</div>
-        <div class="tool-links">
-          <a href="{{ '/docs/odin/' | relative_url }}">Documentation</a>
-          <a href="{{ '/docs/odin/architecture/' | relative_url }}">Architecture</a>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -119,11 +99,11 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
     </header>
 <div class="prose-column" markdown="1">
 
-No daemons. No IPC. No message bus. Each tool is a Go binary you run on its own.
+No daemons. No IPC. No message bus. Odin is a Go binary you run on its own; Heimdall and Ratatoskr are libraries you import.
 
-**Heimdall** is a shared Go library that provides a single source of truth for configuration across all tools, with schema validation and change notifications. Tools also share vault directories and databases on disk.
+**Heimdall** provides Odin's single source of truth for configuration, with schema validation and change notifications. **Ratatoskr** ships the Python interpreter inside the binary so analysis features work without a separate install.
 
-Every tool works independently. Shared configuration is a convenience, not a dependency.
+Each library stands on its own. They power Odin, but you can pull either into your own Go project — they're not coupled to the application.
 
 </div>
   </div>
@@ -133,11 +113,11 @@ Every tool works independently. Shared configuration is a convenience, not a dep
   <div class="section-inner">
     <header class="section-header">
       <span class="section-eyebrow">Getting started</span>
-      <h2>Install Muninn in one command.</h2>
-      <p class="section-lede">Muninn is the first tool ready for use. Install it and start capturing knowledge.</p>
+      <h2>Use the libraries today. Watch Odin take shape.</h2>
+      <p class="section-lede">Heimdall and Ratatoskr are available as Go modules. Odin is in active development — follow along on GitHub.</p>
     </header>
-    <pre class="install-cmd"><code>go install github.com/asgardehs/muninn@latest</code></pre>
-    <p class="section-footnote">See the <a href="{{ '/docs/muninn/' | relative_url }}">Muninn documentation</a> for setup and usage.</p>
+    <pre class="install-cmd"><code>go get github.com/asgardehs/heimdall@latest</code></pre>
+    <p class="section-footnote">See the <a href="{{ '/docs/heimdall/' | relative_url }}">Heimdall documentation</a> to get started, or read the <a href="{{ '/docs/odin/' | relative_url }}">Odin docs</a> for what's coming.</p>
   </div>
 </section>
 
