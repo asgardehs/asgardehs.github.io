@@ -54,5 +54,5 @@ Import the public key from a keyserver to verify locally:
 gpg --recv-keys A91B7835538F03C3
 ```
 
-A formal security policy describing the disclosure process and expected
-response times is in progress and will reference this key.
+The full disclosure process and expected response times are documented in
+the [security policy](/security/).

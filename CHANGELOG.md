@@ -9,6 +9,21 @@ Notable changes to the Asgard EHS project and documentation site. Format
 loosely follows [Keep a Changelog](https://keepachangelog.com/); dates are
 ISO-8601.
 
+## 2026-04-29 — Security policy published
+
+Published the project's [security policy](/security/) (version 0.1.0).
+The policy follows the [OWASP Vulnerability Disclosure Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)
+and documents the disclosure process, expected response times, scope,
+and the project's PGP public key for encrypting sensitive reports. The
+policy honestly names the solo-maintainer constraint and frames its
+timing targets as commitments, not guarantees. Linked from the site
+footer and the developer page.
+
+Also corrected three stale stack references on the landing page and the
+schema-builder doc that still described the old Wails+Svelte
+implementation; the architecture ADRs had already moved to embedded HTTP
+server + React.
+
 ## 2026-04-28 — Scope reduction to Odin
 
 The project narrowed its public scope to a single primary application
