@@ -82,7 +82,7 @@ Custom tables can relate to whitelisted pre-built tables:
 - `training_courses`, `training_completions`
 - `storage_locations`, `work_areas`
 
-The query builder generates appropriate JOINs. `RecordForm.svelte` renders
+The query builder generates appropriate JOINs. `RecordForm.tsx` renders
 searchable dropdowns for relation fields.
 
 ## Table Designer UI

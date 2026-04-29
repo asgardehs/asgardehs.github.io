@@ -31,7 +31,7 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
       </div>
       <div class="principle">
         <span class="principle-num">02</span>
-        <h3>Single-binary Go or Rust</h3>
+        <h3>Single-binary Go</h3>
         <p>Download, run, done. No runtime to install, no package manager to wrangle.</p>
       </div>
       <div class="principle">
@@ -57,7 +57,7 @@ description: Open-source, local-first EHS compliance tools. Single-binary Go app
           <span class="status status-dev">In development</span>
         </div>
         <p>Desktop compliance management for manufacturing. Incidents, chemicals, training, and a schema builder for custom data — all in a single binary.</p>
-        <div class="tool-tech">Wails v2 + Svelte &middot; SQLite &middot; OSHA / EPA / RCRA</div>
+        <div class="tool-tech">React + Go HTTP server &middot; SQLite &middot; OSHA / EPA / RCRA</div>
         <div class="tool-links">
           <a href="{{ '/docs/odin/' | relative_url }}">Documentation</a>
           <a href="{{ '/docs/odin/architecture/' | relative_url }}">Architecture</a>
