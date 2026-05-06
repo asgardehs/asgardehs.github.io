@@ -24,6 +24,12 @@
     - { title: Embedding libraries,   url: /docs/ratatoskr/embedding/ }
     - { title: Releases & platforms,  url: /docs/ratatoskr/releases/ }
 
+- title: Muninn
+  status: active
+  pages:
+    - { title: Overview,    url: /docs/muninn/ }
+    - { title: Quick start, url: /docs/muninn/quickstart/ }
+
 - title: Design system
   status: active
   pages:

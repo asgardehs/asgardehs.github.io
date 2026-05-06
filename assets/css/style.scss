@@ -904,6 +904,20 @@ a.docs-hub-card:hover {
 }
 .docs-hub-card.is-disabled .docs-hub-cta { color: var(--fg-muted); }
 
+.docs-hub-heading {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+  font-size: var(--text-2xl);
+  letter-spacing: -0.02em;
+}
+.docs-hub-lede {
+  color: var(--fg-muted);
+  margin-top: var(--space-2);
+  margin-bottom: 0;
+  max-width: 62ch;
+}
+
 @media (max-width: 720px) {
   .docs-hub { grid-template-columns: 1fr; }
 }
